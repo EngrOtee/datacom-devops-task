@@ -1,0 +1,28 @@
+name: Hello World Wokrflow
+on: 
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  MY_NAME: "Oto-Obong"
+  ENVIRONMENT: "Datacome-Cloud"
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Print Hello Message
+        run: echo "Hello from $MY_NAME! Environment is $ENVIRONMENT"
+
+      - name: Show data and time
+        run: echo "Workflow ran at $(date)"
+      
+
+git add .
+git commit -m "Add GitHub Actions workflow"
+git push origin main
